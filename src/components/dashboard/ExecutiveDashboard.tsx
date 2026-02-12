@@ -197,7 +197,10 @@ export function ExecutiveDashboard() {
               {/* Transcript Button */}
               <div style={{ margin: '16px 0', textAlign: 'center' }}>
                 <button
-                  onClick={() => setTranscriptModal({show: true, conversation})}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent event bubbling to conversation card
+                    setTranscriptModal({show: true, conversation});
+                  }}
                   style={{
                     padding: '8px 16px',
                     fontSize: '14px',

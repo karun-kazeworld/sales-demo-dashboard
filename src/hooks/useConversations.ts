@@ -21,34 +21,66 @@ export function useConversations(productId?: string, executiveId?: string) {
       }
     }
 
+    console.log('🔄 useConversations: Effect triggered', { productId, executiveId });
     fetchConversations();
 
     // Wait for auth session before setting up real-time
     const setupRealtime = async () => {
-      await supabase.auth.getSession();
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        console.log('🔐 Auth session check:', session ? 'Valid' : 'No session');
+        
+        if (!session) {
+          console.log('❌ No auth session, skipping realtime setup');
+          return null;
+        }
 
-      // Real-time subscription for conversations
-      const subscription = supabase
-        .channel('conversations-changes')
-        .on('postgres_changes', 
-          { event: '*', schema: 'public', table: 'conversations' },
-          async (payload) => {
-            // Refresh all conversations data
-            const { data } = await getConversations(productId, executiveId);
-            if (data) {
-              setConversations(data);
+        console.log('🔄 Setting up realtime subscription...');
+
+        // Real-time subscription for conversations
+        const subscription = supabase
+          .channel(`conversations-${Date.now()}`) // Unique channel name to prevent conflicts
+          .on('postgres_changes', 
+            { event: '*', schema: 'public', table: 'conversations' },
+            async (payload) => {
+              console.log('📡 Realtime event received:', payload.eventType, (payload.new as any)?.id);
+              // Refresh all conversations data
+              const { data } = await getConversations(productId, executiveId);
+              if (data) {
+                console.log('📊 Refreshed conversations count:', data.length);
+                setConversations(data);
+              }
             }
-          }
-        )
-        .subscribe();
+          )
+          .subscribe((status) => {
+            console.log('📡 Realtime subscription status:', status);
+            if (status === 'SUBSCRIBED') {
+              console.log('✅ Realtime connected successfully');
+            } else if (status === 'CLOSED' || status === 'TIMED_OUT') {
+              console.log('❌ Realtime connection failed:', status);
+            }
+          });
 
-      return subscription;
+        return subscription;
+      } catch (error) {
+        console.error('❌ Realtime setup error:', error);
+        return null;
+      }
     };
 
     const subscriptionPromise = setupRealtime();
 
+    // Cleanup function
     return () => {
-      subscriptionPromise.then(subscription => subscription?.unsubscribe());
+      console.log('🧹 Cleaning up realtime subscription...');
+      subscriptionPromise.then(subscription => {
+        if (subscription) {
+          console.log('🔌 Unsubscribing from realtime');
+          subscription.unsubscribe();
+        }
+      }).catch(error => {
+        console.error('❌ Cleanup error:', error);
+      });
     };
   }, [productId, executiveId]);
 
