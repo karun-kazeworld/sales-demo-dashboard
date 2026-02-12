@@ -25,9 +25,7 @@ export function useConversations(productId?: string, executiveId?: string) {
 
     // Wait for auth session before setting up real-time
     const setupRealtime = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      // Session is retrieved but not used directly - kept for potential auth checks
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      await supabase.auth.getSession();
 
       // Real-time subscription for conversations
       const subscription = supabase

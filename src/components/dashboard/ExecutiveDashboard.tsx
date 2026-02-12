@@ -4,26 +4,6 @@ import { useConversations } from '../../hooks/useConversations';
 import { useProducts } from '../../hooks/useProducts';
 import { UniversalScoreDisplay } from '../analysis/UniversalScoreDisplay';
 
-// Helper function to get status color (currently unused but kept for future use)
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const getStatusColor = (status: string) => {
-  const statusLower = status?.toLowerCase();
-  switch (statusLower) {
-    case 'pass':
-    case 'good':
-    case 'excellent':
-      return '#26A69A'; // Green
-    case 'fail':
-    case 'poor':
-      return '#FF4757'; // Red
-    case 'needs_improvement':
-    case 'needs improvement':
-      return '#FF9800'; // Orange
-    default:
-      return '#9E9E9E'; // Gray
-  }
-};
-
 export function ExecutiveDashboard() {
   const { profile, signOut } = useAuth();
   const { products } = useProducts();
