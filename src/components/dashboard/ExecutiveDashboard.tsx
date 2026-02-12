@@ -12,11 +12,16 @@ export function ExecutiveDashboard() {
   const [customStartDate, setCustomStartDate] = useState<string>('');
   const [customEndDate, setCustomEndDate] = useState<string>('');
   const [transcriptModal, setTranscriptModal] = useState<{show: boolean, conversation: any}>({show: false, conversation: null});
+  const [selectedConversation, setSelectedConversation] = useState<any>(null);
   
   const { conversations, loading } = useConversations(
     selectedProductId || undefined,
     profile?.id
   );
+
+  const handleConversationClick = useCallback((conversation: any) => {
+    setSelectedConversation(conversation);
+  }, []);
 
   const accessibleProducts = useMemo(() => 
     products.filter(product => 
@@ -171,7 +176,7 @@ export function ExecutiveDashboard() {
           if (!product) return null;
 
           return (
-            <div key={conversation.id} className="conversation-card">
+            <div key={conversation.id} className="conversation-card" onClick={() => handleConversationClick(conversation)} style={{ cursor: 'pointer' }}>
               <div className="conversation-header">
                 <h3>{product.product}</h3>
                 <div className="header-right" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -339,6 +344,127 @@ export function ExecutiveDashboard() {
                 }
                 return <div key={idx}>{line}</div>;
               })}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Conversation Detail Modal */}
+      {selectedConversation && (
+        <div className="modal-overlay" style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+          padding: '20px'
+        }}>
+          <div className="modal-content" style={{
+            backgroundColor: 'white',
+            borderRadius: '8px',
+            padding: '24px',
+            maxWidth: '600px',
+            width: '100%',
+            maxHeight: '80vh',
+            overflow: 'auto',
+            position: 'relative'
+          }}>
+            <button
+              onClick={() => setSelectedConversation(null)}
+              style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                background: 'none',
+                border: 'none',
+                fontSize: '24px',
+                cursor: 'pointer',
+                color: '#666'
+              }}
+            >
+              ×
+            </button>
+
+            <div className="conversation-card">
+              <div className="conversation-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+                <h3 style={{ margin: 0, flex: 1 }}>{products.find(p => p.id === selectedConversation.product_id)?.product}</h3>
+                <span className="date" style={{ fontSize: '14px', color: '#666', whiteSpace: 'nowrap', marginLeft: '16px' }}>
+                  {new Date(selectedConversation.conversation_timestamp).toLocaleDateString()}
+                </span>
+              </div>
+              
+              {(() => {
+                const product = products.find(p => p.id === selectedConversation.product_id);
+                if (!product) return null;
+                
+                return (
+                  <UniversalScoreDisplay
+                    analysisResult={selectedConversation.analysis_result}
+                    schema={product.schema_definition}
+                    productName={product.product}
+                    complianceStatus={selectedConversation.status || selectedConversation.analysis_result?.compliance?.status}
+                  />
+                );
+              })()}
+
+              {/* Evidence section */}
+              {(selectedConversation.analysis_result.evidence_quotes || 
+                selectedConversation.analysis_result.dimension_ratings ||
+                selectedConversation.analysis_result.qa) && (
+                <div className="evidence-section">
+                  <h4>Key Evidence</h4>
+                  {selectedConversation.analysis_result.evidence_quotes?.slice(0, 3).map((quote: any, idx: number) => (
+                    <div key={idx} className="evidence-quote">
+                      <p>"{quote.quote}"</p>
+                      <small>Context: {quote.context}</small>
+                    </div>
+                  ))}
+                  
+                  {selectedConversation.analysis_result.dimension_ratings && 
+                    Object.entries(selectedConversation.analysis_result.dimension_ratings)
+                      .slice(0, 3)
+                      .map(([dimension, data]: [string, any]) => (
+                        <div key={dimension} className="evidence-quote">
+                          <p><strong>{dimension}:</strong> {data.evidence}</p>
+                        </div>
+                      ))
+                  }
+                  
+                  {selectedConversation.analysis_result.qa?.slice(0, 2).map((qa: any, idx: number) => (
+                    <div key={idx} className="evidence-quote">
+                      <p><strong>Q:</strong> {qa.question}</p>
+                      <p><strong>A:</strong> {qa.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Recommendations section */}
+              {(selectedConversation.analysis_result.recommendations || 
+                selectedConversation.analysis_result.coach ||
+                selectedConversation.analysis_result.what_went_well) && (
+                <div className="recommendations-section">
+                  <h4>Recommendations</h4>
+                  <ul>
+                    {selectedConversation.analysis_result.recommendations?.slice(0, 3).map((rec: any, idx: number) => (
+                      <li key={idx}>{rec}</li>
+                    ))}
+                    
+                    {selectedConversation.analysis_result.coach?.slice(0, 3).map((coach: any, idx: number) => (
+                      <li key={idx}>{coach}</li>
+                    ))}
+                    
+                    {selectedConversation.analysis_result.what_went_well?.slice(0, 2).map((item: any, idx: number) => (
+                      <li key={idx}><strong>✓</strong> {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </div>
