@@ -67,10 +67,10 @@ export function LoginForm() {
         
         <div className="demo-credentials">
           <h3>Demo Emails to login</h3>
-          <p><strong>Automotive Executive:</strong> castrol.executive@demo.com</p>
-          <p><strong>Automotive Supervisor:</strong> automotive.supervisor@demo.com</p>
-          <p><strong>Banking Executive:</strong> sbi.executive@demo.com</p>
-          <p><strong>Banking Supervisor:</strong> banking.supervisor@demo.com</p>
+          <p><strong>Automotive Supervisor:</strong> as@kazeworld.com</p>
+          <p><strong>Banking Supervisor:</strong> bs@kazeworld.com</p>
+          <p><strong>Automotive Executive:</strong> ce@kazeworld.com</p>
+          <p><strong>Banking Executive:</strong> se@kazeworld.com</p>
         </div>
       </div>
     </div>
