@@ -34,10 +34,11 @@ The app will open at [http://localhost:3000](http://localhost:3000)
 
 Login with these test accounts on the live site:
 
-- **Automotive Executive:** `castrol.executive@demo.com`
-- **Automotive Supervisor:** `automotive.supervisor@demo.com`  
-- **Banking Executive:** `sbi.executive@demo.com`
-- **Banking Supervisor:** `banking.supervisor@demo.com`
+- **Admin:** `admin@kazeworld.com`
+- **Automotive Supervisor:** `as@kazeworld.com`  
+- **Banking Supervisor:** `bs@kazeworld.com`
+- **Automotive Executive:** `ce@kazeworld.com`
+- **Banking Executive:** `se@kazeworld.com`
 
 ## 🏗️ Architecture
 
