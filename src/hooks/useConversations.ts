@@ -25,7 +25,7 @@ export function useConversations(productId?: string, executiveId?: string) {
     fetchConversations();
 
     // Wait for auth session before setting up real-time
-    const setupRealtime = async () => {
+    const setupRealtime = async (retryCount = 0) => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
         console.log('🔐 Auth session check:', session ? 'Valid' : 'No session');
@@ -35,11 +35,11 @@ export function useConversations(productId?: string, executiveId?: string) {
           return null;
         }
 
-        console.log('🔄 Setting up realtime subscription...');
+        console.log(`🔄 Setting up realtime subscription... (attempt ${retryCount + 1})`);
 
-        // Real-time subscription for conversations
+        // Real-time subscription with retry logic for production
         const subscription = supabase
-          .channel(`conversations-${Date.now()}`) // Unique channel name to prevent conflicts
+          .channel(`conversations-${Date.now()}`)
           .on('postgres_changes', 
             { event: '*', schema: 'public', table: 'conversations' },
             async (payload) => {
@@ -58,12 +58,32 @@ export function useConversations(productId?: string, executiveId?: string) {
               console.log('✅ Realtime connected successfully');
             } else if (status === 'CLOSED' || status === 'TIMED_OUT') {
               console.log('❌ Realtime connection failed:', status);
+              
+              // Retry up to 3 times with exponential backoff
+              if (retryCount < 3) {
+                const delay = Math.pow(2, retryCount) * 2000; // 2s, 4s, 8s
+                console.log(`🔄 Retrying connection in ${delay/1000}s... (${retryCount + 1}/3)`);
+                setTimeout(() => {
+                  setupRealtime(retryCount + 1);
+                }, delay);
+              } else {
+                console.log('❌ Max retries reached. Realtime disabled for this session.');
+              }
             }
           });
 
         return subscription;
       } catch (error) {
         console.error('❌ Realtime setup error:', error);
+        
+        // Retry on error too
+        if (retryCount < 3) {
+          const delay = Math.pow(2, retryCount) * 2000;
+          console.log(`🔄 Retrying after error in ${delay/1000}s...`);
+          setTimeout(() => {
+            setupRealtime(retryCount + 1);
+          }, delay);
+        }
         return null;
       }
     };
