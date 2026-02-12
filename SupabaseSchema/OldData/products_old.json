@@ -1,0 +1,100 @@
+[
+  {
+    "id": "359aa576-5e3f-4454-b0bb-5019588a065a",
+    "product": "Castrol CRB Turbomax",
+    "domain": "Automotive",
+    "brand": "castrol",
+    "schema_definition": {
+      "scale": [
+        0,
+        5
+      ],
+      "dimensions": [
+        "business_understanding",
+        "product_fit",
+        "objection_handling",
+        "closing_technique",
+        "compliance",
+        "relationship_building",
+        "technical_accuracy"
+      ],
+      "product_details": {
+        "category": "Commercial Vehicle Engine Oil",
+        "customer_type": "B2B Fleet Operators",
+        "approved_benefits": [
+          "engine protection under heavy loads",
+          "reliable long-haul performance",
+          "reduced engine wear"
+        ],
+        "disallowed_claims": [
+          "mileage improvement",
+          "fuel savings",
+          "engine life guarantees"
+        ]
+      },
+      "score_structure": "multi_dimension",
+      "has_photo_analysis": true
+    },
+    "ui_config": {
+      "charts": [
+        "radar",
+        "gauge",
+        "bar"
+      ],
+      "colors": {
+        "primary": "#E31E24",
+        "secondary": "#FFA500"
+      },
+      "dashboard_layout": "executive_supervisor"
+    },
+    "created_at": "2026-02-06 13:55:21.8531+00",
+    "updated_at": "2026-02-06 13:55:21.8531+00"
+  },
+  {
+    "id": "486e4c08-9f3b-447b-8648-496988da645f",
+    "product": "SBI Life Smart Annuity Plus",
+    "domain": "Banking",
+    "brand": "sbi",
+    "schema_definition": {
+      "scale": [
+        0,
+        100
+      ],
+      "subscores": [
+        "regulatory_compliance",
+        "product_explanation",
+        "customer_suitability"
+      ],
+      "product_details": {
+        "uin": "111N134V10",
+        "category": "Annuity Plan, Pension Plan",
+        "limitations": "Generally no maturity value; death benefits depend on selected option",
+        "customer_type": "End Customer",
+        "key_variations": [
+          "life only",
+          "life with return of purchase price",
+          "joint life",
+          "increasing annuity"
+        ],
+        "primary_benefit": "Guaranteed periodic income for life or defined period",
+        "regulatory_body": "IRDAI"
+      },
+      "score_structure": "subscore",
+      "has_photo_analysis": false
+    },
+    "ui_config": {
+      "charts": [
+        "gauge",
+        "timeline",
+        "compliance_status"
+      ],
+      "colors": {
+        "primary": "#1f4e79",
+        "secondary": "#87CEEB"
+      },
+      "dashboard_layout": "compliance_focused"
+    },
+    "created_at": "2026-02-06 13:55:21.8531+00",
+    "updated_at": "2026-02-06 13:55:21.8531+00"
+  }
+]

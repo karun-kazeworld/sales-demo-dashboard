@@ -1,0 +1,85 @@
+[
+  {
+    "product_id": "9a373afa-f83c-4e8c-bf29-56d2b9fbfb6f",
+    "executive_id": "2362ef17-4825-4162-9727-6a132c591643",
+    "transcript": "Salesperson: Thank you for your time. Based on your retirement plans, I'd like to explain SBI Life Smart Annuity Plus, which provides regular annuity income.\nCustomer: Is this a market-linked product?\nSalesperson: No. It is an Individual, Non-Linked, Non-Participating, General Annuity product.\nCustomer: Will I get income for life?\nSalesperson: Yes, depending on the annuity option chosen, annuity payouts are payable for life.\nCustomer: What happens on death?\nSalesperson: That depends on the annuity option. Some options provide return of purchase price, and some do not.\nCustomer: Can I change the option later?\nSalesperson: Once chosen, the annuity option cannot be changed after the free look period.\nCustomer: I need to understand this better.",
+    "conversation_timestamp": "2026-02-11T15:45:00Z",
+    "analysis_result": {
+      "product": "SBI Life Smart Annuity Plus",
+      "score": {
+        "total": 60,
+        "subscores": {
+          "accuracy": 35,
+          "qa_handling": 20,
+          "compliance": 13
+        },
+        "grade": "needs_improvement"
+      },
+      "highlights": [
+        "Correctly positioned the product as non-linked and non-participating",
+        "Avoided making unconditional death benefit claims"
+      ],
+      "issues": [
+        {
+          "type": "qa",
+          "severity": "medium",
+          "summary": "Customer understanding of annuity option differences was not fully clarified",
+          "evidence": {
+            "transcript_quote": "That depends on the annuity option.",
+            "doc_quote": "Death Benefit depends on the Annuity Option chosen.",
+            "doc_ref": "Plan Benefits – Life Annuity Options"
+          }
+        }
+      ],
+      "claims": [
+        {
+          "id": "claim_001",
+          "text": "annuity payouts are payable for life",
+          "status": "ambiguous",
+          "evidence": {
+            "transcript_quote": "depending on the annuity option chosen",
+            "doc_quote": "Life Annuity options provide income for life",
+            "doc_ref": "Annuity Options Section"
+          }
+        }
+      ],
+      "qa": [
+        {
+          "question": "Is this a market-linked product?",
+          "answer_quality": "excellent",
+          "evidence": {
+            "transcript_quote": "Individual, Non-Linked, Non-Participating, General Annuity product",
+            "doc_quote": "Non-Linked, Non-Participating product",
+            "doc_ref": "Product Classification"
+          }
+        },
+        {
+          "question": "What happens on death?",
+          "answer_quality": "needs_improvement",
+          "evidence": {
+            "transcript_quote": "That depends on the annuity option",
+            "doc_quote": "Death benefits vary by annuity option selected",
+            "doc_ref": "Death Benefit Section"
+          }
+        }
+      ],
+      "coach": [
+        "Explain specific annuity options with examples",
+        "Clarify death benefit variations clearly",
+        "Use policy document references"
+      ],
+      "next_meeting_coaching": [
+        "Prepare annuity options comparison chart",
+        "Bring policy document for detailed review",
+        "Focus on customer's specific retirement needs"
+      ]
+    },
+    "total_score": 50,
+    "status": "bad",
+    "metadata": {
+      "duration_minutes": 20,
+      "customer_type": "individual",
+      "age": 55
+    }
+  }
+]

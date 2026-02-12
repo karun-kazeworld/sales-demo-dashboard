@@ -1,0 +1,251 @@
+[
+  {
+    "id": "40a18d4c-115d-44bc-8701-e7616d278ec6",
+    "product_id": "359aa576-5e3f-4454-b0bb-5019588a065a",
+    "executive_id": "c8b4f8e6-f91a-43f1-89ed-433c570ac704",
+    "transcript": "Salesperson: Thanks for meeting today. I wanted to understand your fleet operations and see if Castrol can support you better.\nCustomer: We operate around 100 trucks, mostly long-haul. Downtime is a big issue.\nSalesperson: Many long-haul fleets use Castrol CRB Turbomax because it performs well under heavy loads and protects engines during long runs.\nCustomer: We currently use Servo. Their pricing works for us.\nSalesperson: I understand price matters. CRB Turbomax is slightly premium, but it improves engine life overall.\nCustomer: How does that help me practically?\nSalesperson: Better engine protection usually means fewer breakdowns. Some customers have also seen mileage improvements.\nCustomer: I'm not convinced yet.\nSalesperson: Maybe you can try it on a few trucks.\nCustomer: Let's see.",
+    "conversation_timestamp": "2026-02-05 14:30:00+00",
+    "analysis_result": {
+      "compliance": {
+        "status": "fail",
+        "violations": [
+          {
+            "type": "false_claim",
+            "statement": "mileage improvements",
+            "risk_level": "high"
+          }
+        ],
+        "overall_risk_level": "high"
+      },
+      "overall_rating": {
+        "deal_readiness": "low",
+        "score_0_to_100": 54,
+        "executive_summary": "Initial alignment with customer use case is present, but risky claims and weak value framing reduce deal momentum."
+      },
+      "dimension_ratings": {
+        "product_fit": {
+          "rationale": "Product correctly matched to long-haul usage.",
+          "score_0_to_5": 4,
+          "evidence_quotes": [
+            "performs well under heavy loads"
+          ]
+        },
+        "qa_handling": {
+          "rationale": "Objections acknowledged but not addressed in a structured way.",
+          "score_0_to_5": 2,
+          "evidence_quotes": [
+            "Maybe you can try it on a few trucks"
+          ]
+        },
+        "value_articulation": {
+          "rationale": "Value mentioned but not quantified or tied to business impact.",
+          "score_0_to_5": 2.5,
+          "evidence_quotes": [
+            "fewer breakdowns"
+          ]
+        },
+        "commercial_handling": {
+          "rationale": "No structured commercial discussion.",
+          "score_0_to_5": 2,
+          "evidence_quotes": []
+        },
+        "close_and_next_steps": {
+          "rationale": "Trial suggested without scope or commitment.",
+          "score_0_to_5": 2,
+          "evidence_quotes": [
+            "Maybe you can try it on a few trucks"
+          ]
+        },
+        "business_understanding": {
+          "rationale": "Basic understanding of fleet type but no deeper operational discovery.",
+          "score_0_to_5": 3,
+          "evidence_quotes": [
+            "We operate around 100 trucks, mostly long-haul."
+          ]
+        },
+        "conversation_structure": {
+          "rationale": "Conversation flowed logically but lacked a strong midpoint or close.",
+          "score_0_to_5": 3,
+          "evidence_quotes": []
+        }
+      }
+    },
+    "total_score": "54.00",
+    "compliance_status": "fail",
+    "metadata": {
+      "fleet_size": 100,
+      "route_type": "long_haul",
+      "customer_type": "fleet_operator",
+      "current_supplier": "servo",
+      "duration_minutes": 15
+    },
+    "created_at": "2026-02-06 14:24:48.545308+00"
+  },
+  {
+    "id": "62aecd46-c492-4cbb-951f-ef458e4552da",
+    "product_id": "359aa576-5e3f-4454-b0bb-5019588a065a",
+    "executive_id": "c8b4f8e6-f91a-43f1-89ed-433c570ac704",
+    "transcript": "Salesperson: Last time we discussed downtime challenges. Can you share how often trucks are off-road due to engine issues?\nCustomer: Roughly two trucks a month face engine-related downtime.\nSalesperson: Understood. CRB Turbomax is designed for heavy-load, long-haul operations and helps reduce engine wear, which supports more reliable performance.\nCustomer: Price is still a concern.\nSalesperson: That's fair. Instead of a full switch, would you be open to a controlled trial on 10 trucks to compare performance consistency?\nCustomer: Possibly. What about support during the trial?\nSalesperson: We can support monitoring during the trial period and review results together.\nCustomer: Let's discuss this further.",
+    "conversation_timestamp": "2026-02-06 14:30:00+00",
+    "analysis_result": {
+      "compliance": {
+        "status": "pass",
+        "violations": [],
+        "overall_risk_level": "low"
+      },
+      "overall_rating": {
+        "deal_readiness": "medium",
+        "score_0_to_100": 74,
+        "executive_summary": "Clear improvement in discovery, compliance-safe value articulation, and a more structured trial proposal."
+      },
+      "dimension_ratings": {
+        "product_fit": {
+          "rationale": "Strong alignment with customer usage.",
+          "score_0_to_5": 4.5,
+          "evidence_quotes": [
+            "designed for heavy-load, long-haul operations"
+          ]
+        },
+        "qa_handling": {
+          "rationale": "Objection handled with a pilot approach.",
+          "score_0_to_5": 3.5,
+          "evidence_quotes": [
+            "would you be open to a controlled trial"
+          ]
+        },
+        "value_articulation": {
+          "rationale": "Value linked to downtime reduction but not yet quantified financially.",
+          "score_0_to_5": 3.5,
+          "evidence_quotes": [
+            "supports more reliable performance"
+          ]
+        },
+        "commercial_handling": {
+          "rationale": "Commercial discussion improving but still high-level.",
+          "score_0_to_5": 3,
+          "evidence_quotes": []
+        },
+        "close_and_next_steps": {
+          "rationale": "Trial scoped but not yet agreed.",
+          "score_0_to_5": 3.5,
+          "evidence_quotes": [
+            "controlled trial on 10 trucks"
+          ]
+        },
+        "business_understanding": {
+          "rationale": "Operational impact was explicitly explored.",
+          "score_0_to_5": 4,
+          "evidence_quotes": [
+            "two trucks a month face engine-related downtime"
+          ]
+        },
+        "conversation_structure": {
+          "rationale": "Clear progression from discovery to proposal.",
+          "score_0_to_5": 4,
+          "evidence_quotes": []
+        }
+      }
+    },
+    "total_score": "74.00",
+    "compliance_status": "pass",
+    "metadata": {
+      "fleet_size": 100,
+      "route_type": "long_haul",
+      "customer_type": "fleet_operator",
+      "current_supplier": "servo",
+      "duration_minutes": 18
+    },
+    "created_at": "2026-02-06 14:24:48.545308+00"
+  },
+  {
+    "id": "110bcbdf-be1a-42e4-905a-5606f0e4f853",
+    "product_id": "486e4c08-9f3b-447b-8648-496988da645f",
+    "executive_id": "2362ef17-4825-4162-9727-6a132c591643",
+    "transcript": "Salesperson: Thank you for your time. Based on your retirement plans, I'd like to explain SBI Life – Smart Annuity Plus, which provides regular annuity income.\nCustomer: Is this a market-linked product?\nSalesperson: No. It is an Individual, Non-Linked, Non-Participating, General Annuity product.\nCustomer: Will I get income for life?\nSalesperson: Yes, depending on the annuity option chosen, annuity payouts are payable for life.\nCustomer: What happens on death?\nSalesperson: That depends on the annuity option. Some options provide return of purchase price, and some do not.\nCustomer: Can I change the option later?\nSalesperson: Once chosen, the annuity option cannot be changed after the free look period.\nCustomer: I need to understand this better.",
+    "conversation_timestamp": "2026-02-05 15:45:00+00",
+    "analysis_result": {
+      "score": {
+        "grade": "needs_improvement",
+        "total": 68,
+        "subscores": {
+          "accuracy": 35,
+          "compliance": 13,
+          "qa_handling": 20
+        }
+      },
+      "issues": [
+        {
+          "type": "qa",
+          "summary": "Customer understanding of annuity option differences was not fully clarified",
+          "evidence": {
+            "doc_ref": "Plan Benefits – Life Annuity Options",
+            "doc_quote": "Death Benefit depends on the Annuity Option chosen.",
+            "transcript_quote": "That depends on the annuity option."
+          },
+          "severity": "medium"
+        }
+      ],
+      "product": "SBI Life – Smart Annuity Plus",
+      "highlights": [
+        "Correctly positioned the product as non-linked and non-participating",
+        "Avoided making unconditional death benefit claims"
+      ]
+    },
+    "total_score": "68.00",
+    "compliance_status": "pass",
+    "metadata": {
+      "age": 55,
+      "risk_profile": "conservative",
+      "customer_type": "individual",
+      "retirement_goal": "regular_income",
+      "duration_minutes": 20
+    },
+    "created_at": "2026-02-06 14:24:48.545308+00"
+  },
+  {
+    "id": "e8779dd5-6da1-4dea-8d87-929701b46c57",
+    "product_id": "486e4c08-9f3b-447b-8648-496988da645f",
+    "executive_id": "2362ef17-4825-4162-9727-6a132c591643",
+    "transcript": "Salesperson: Last time we discussed annuity basics. Today I'll explain specific options under Smart Annuity Plus.\nCustomer: Okay.\nSalesperson: For example, Life Annuity with Return of Purchase Price pays annuity for life, and on death, the purchase price is returned to the nominee.\nCustomer: Are there options without death benefit?\nSalesperson: Yes. Life Annuity and increasing annuity options stop payouts on death and do not return purchase price.\nCustomer: Is the income taxable?\nSalesperson: Annuities are taxable as per prevailing income tax laws, which are subject to change.\nCustomer: Can I surrender the policy?\nSalesperson: Surrender value is available only under certain annuity options, as specified in the policy document.\nCustomer: I'll review this and decide.",
+    "conversation_timestamp": "2026-02-06 15:45:00+00",
+    "analysis_result": {
+      "score": {
+        "grade": "good",
+        "total": 82,
+        "subscores": {
+          "accuracy": 43,
+          "compliance": 14,
+          "qa_handling": 25
+        }
+      },
+      "issues": [
+        {
+          "type": "qa",
+          "summary": "Customer preference between income vs death benefit not explicitly confirmed",
+          "evidence": {
+            "doc_ref": "Annuity Options Section",
+            "doc_quote": "Different annuity options provide different benefits.",
+            "transcript_quote": "For example, Life Annuity with Return of Purchase Price"
+          },
+          "severity": "low"
+        }
+      ],
+      "product": "SBI Life – Smart Annuity Plus",
+      "highlights": [
+        "Correct differentiation between annuity options",
+        "Accurate explanation of taxation treatment",
+        "Proper handling of surrender conditions"
+      ]
+    },
+    "total_score": "82.00",
+    "compliance_status": "pass",
+    "metadata": {
+      "age": 55,
+      "risk_profile": "conservative",
+      "customer_type": "individual",
+      "retirement_goal": "regular_income",
+      "duration_minutes": 25
+    },
+    "created_at": "2026-02-06 14:24:48.545308+00"
+  }
+]

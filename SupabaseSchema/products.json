@@ -1,0 +1,49 @@
+[
+  {
+    "product": "Castrol CRB Turbomax",
+    "domain": "Automotive",
+    "brand": "castrol",
+    "schema_definition": {
+      "score_structure": "multi_dimension",
+      "dimensions": ["business_understanding", "product_fit", "value_articulation", "qa_handling", "commercial_handling", "conversation_structure", "close_and_next_steps"],
+      "scale": [0, 5],
+      "has_photo_analysis": true,
+      "product_details": {
+        "category": "Commercial Vehicle Engine Oil",
+        "customer_type": "B2B Fleet Operators",
+        "approved_benefits": ["engine protection under heavy loads", "reliable long-haul performance", "reduced engine wear"],
+        "disallowed_claims": ["mileage improvement", "fuel savings", "engine life guarantees"]
+      }
+    },
+    "ui_config": {
+      "charts": ["radar", "gauge", "bar"],
+      "colors": {"primary": "#E31E24", "secondary": "#FFA500"},
+      "dashboard_layout": "executive_supervisor"
+    }
+  },
+  {
+    "product": "SBI Life Smart Annuity Plus",
+    "domain": "Banking",
+    "brand": "sbi",
+    "schema_definition": {
+      "score_structure": "subscore",
+      "subscores": ["accuracy", "qa_handling", "compliance"],
+      "scale": [0, 100],
+      "has_photo_analysis": false,
+      "product_details": {
+        "uin": "111N134V10",
+        "category": "Annuity Plan, Pension Plan",
+        "customer_type": "End Customer",
+        "primary_benefit": "Guaranteed periodic income for life or defined period",
+        "key_variations": ["life only", "life with return of purchase price", "joint life", "increasing annuity"],
+        "limitations": "Generally no maturity value; death benefits depend on selected option",
+        "regulatory_body": "IRDAI"
+      }
+    },
+    "ui_config": {
+      "charts": ["gauge", "timeline", "compliance_status"],
+      "colors": {"primary": "#1f4e79", "secondary": "#87CEEB"},
+      "dashboard_layout": "compliance_focused"
+    }
+  }
+]
