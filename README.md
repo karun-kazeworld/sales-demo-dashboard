@@ -1,7 +1,8 @@
 # Sales Performance Dashboard
 
-## 🎯 Project Status: PRODUCTION READY
-**Live Supabase Integration** | **Real Authentication** | **Cloud Database**
+## 🎯 Project Status: ✅ LIVE IN PRODUCTION
+**🌐 Live URL:** https://sales-performance-dashboard-opal.vercel.app  
+**Live Supabase Integration** | **Real Authentication** | **Cloud Database** | **Auto-Deploy**
 
 A multi-tenant React TypeScript dashboard for sales conversation analysis with role-based access control. Supports multiple domains (Automotive/Banking) with dynamic schema rendering and real-time analytics.
 
@@ -14,7 +15,8 @@ A multi-tenant React TypeScript dashboard for sales conversation analysis with r
 ### Installation & Setup
 ```bash
 # Clone and install dependencies
-cd DemoDashboard
+git clone https://github.com/karun-kazeworld/sales-demo-dashboard.git
+cd sales-demo-dashboard
 npm install
 
 # Start development server
@@ -23,9 +25,14 @@ npm start
 
 The app will open at [http://localhost:3000](http://localhost:3000)
 
+## 🌐 Live Application
+- **Production URL:** https://sales-performance-dashboard-opal.vercel.app
+- **Repository:** https://github.com/karun-kazeworld/sales-demo-dashboard
+- **Auto-Deploy:** ✅ Enabled (deploys on every GitHub push)
+
 ## 🔐 Demo Accounts
 
-Login with these test accounts:
+Login with these test accounts on the live site:
 
 - **Automotive Executive:** `castrol.executive@demo.com`
 - **Automotive Supervisor:** `automotive.supervisor@demo.com`  
@@ -37,6 +44,7 @@ Login with these test accounts:
 ### Tech Stack
 - **Frontend:** React 18 + TypeScript + Tailwind CSS
 - **Backend:** Supabase (PostgreSQL + Auth + Real-time)
+- **Hosting:** Vercel (Serverless)
 - **Charts:** Chart.js + React-Chartjs-2
 - **State:** React Context + Custom Hooks
 - **Routing:** React Router v6
@@ -48,6 +56,7 @@ Login with these test accounts:
 - ✅ **Real-time Data** - Live conversation analysis and scoring
 - ✅ **Persistent Sessions** - No logout on page refresh
 - ✅ **Responsive Design** - Works on desktop, tablet, mobile
+- ✅ **Production Ready** - Live deployment with auto-updates
 
 ## 📊 Dashboard Views
 
@@ -87,12 +96,6 @@ Login with these test accounts:
 - `npm run build` - Production build
 - `npm run eject` - Eject from Create React App
 
-### Environment Variables
-```env
-REACT_APP_SUPABASE_URL=https://xxbdrtsowaawgsbbfqlt.supabase.co
-REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
 ### Project Structure
 ```
 src/
@@ -107,24 +110,19 @@ src/
 └── App.tsx
 ```
 
-## 🐛 Recent Fixes ✅ RESOLVED
-
-1. **Status Badge Issues** - All resolved in February 2026
-   - ✅ Fixed duplicate status display in modal headers
-   - ✅ Added status badge support for automotive domain
-   - ✅ Implemented hybrid status extraction (DB + analysis_result fallback)
-   - ✅ Fixed AdminDashboard status column width consistency
-
-2. **Login Page Enhancement** - Updated messaging
-   - ✅ Changed "Demo Credentials" to "Demo Emails to login"
-   - ✅ Removed password configuration references
-
 ## 📈 Next Steps
 
 1. Add conversation filtering and search functionality
 2. Implement export functionality for analytics
 3. Add real-time notifications for new conversations
 4. Expand to additional domains beyond Automotive/Banking
+5. Add custom domain (optional)
+6. Implement analytics tracking
+
+## 📚 Documentation
+
+- **[PROJECT_SETUP.md](./PROJECT_SETUP.md)** - Complete deployment setup guide
+- **[CONTEXT_DOCUMENT_FOR_AI.md](./CONTEXT_DOCUMENT_FOR_AI.md)** - Technical context for AI assistants
 
 ## 🤝 Contributing
 
@@ -132,5 +130,6 @@ This is a demo project showcasing multi-tenant dashboard architecture with Supab
 
 ---
 
-**Built with React + TypeScript + Supabase**  
-*Production deployment ready*
+**🌐 Live Application:** https://sales-performance-dashboard-opal.vercel.app  
+**Built with React + TypeScript + Supabase + Vercel**  
+*Production deployment ready with auto-updates*

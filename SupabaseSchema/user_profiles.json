@@ -1,34 +1,29 @@
 [
   {
-    "id": "d2b32284-f050-4ab5-a1e5-57454794dde0",
     "email": "admin@demo.com",
     "role": "admin",
     "domain": null,
     "supervisor_id": null
   },
   {
-    "id": "4b8cd22d-342c-465b-8e1d-8ae42e970948",
     "email": "automotive.supervisor@demo.com",
     "role": "supervisor",
     "domain": "Automotive",
     "supervisor_id": null
   },
   {
-    "id": "e378baeb-3378-4782-bea4-3605d18d0832",
     "email": "banking.supervisor@demo.com",
     "role": "supervisor",
     "domain": "Banking",
     "supervisor_id": null
   },
   {
-    "id": "c8b4f8e6-f91a-43f1-89ed-433c570ac704",
     "email": "castrol.executive@demo.com",
     "role": "executive",
     "domain": "Automotive",
     "supervisor_id": "4b8cd22d-342c-465b-8e1d-8ae42e970948"
   },
   {
-    "id": "2362ef17-4825-4162-9727-6a132c591643",
     "email": "sbi.executive@demo.com",
     "role": "executive",
     "domain": "Banking",
