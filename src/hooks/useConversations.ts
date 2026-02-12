@@ -43,7 +43,7 @@ export function useConversations(productId?: string, executiveId?: string) {
           .on('postgres_changes', 
             { event: '*', schema: 'public', table: 'conversations' },
             async (payload) => {
-              console.log('📡 Realtime event received:', payload.eventType, payload.new?.id);
+              console.log('📡 Realtime event received:', payload.eventType, (payload.new as any)?.id);
               // Refresh all conversations data
               const { data } = await getConversations(productId, executiveId);
               if (data) {
