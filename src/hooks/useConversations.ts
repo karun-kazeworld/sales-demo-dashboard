@@ -29,29 +29,9 @@ export function useConversations(productId?: string, executiveId?: string) {
 
       // Real-time subscription for conversations
       const subscription = supabase
-        .channel('public:conversations')
+        .channel('conversations-changes')
         .on('postgres_changes', 
-          { event: 'INSERT', schema: 'public', table: 'conversations' },
-          async (payload) => {
-            // Refresh all conversations data
-            const { data } = await getConversations(productId, executiveId);
-            if (data) {
-              setConversations(data);
-            }
-          }
-        )
-        .on('postgres_changes', 
-          { event: 'UPDATE', schema: 'public', table: 'conversations' },
-          async (payload) => {
-            // Refresh all conversations data
-            const { data } = await getConversations(productId, executiveId);
-            if (data) {
-              setConversations(data);
-            }
-          }
-        )
-        .on('postgres_changes', 
-          { event: 'DELETE', schema: 'public', table: 'conversations' },
+          { event: '*', schema: 'public', table: 'conversations' },
           async (payload) => {
             // Refresh all conversations data
             const { data } = await getConversations(productId, executiveId);

@@ -251,6 +251,7 @@ const ConversationCard = React.memo(({ conversation, product, onClick }: Convers
     {/* Mobile Card Layout */}
     <div 
       className="mobile-conversation-card"
+      onClick={onClick}
       style={{ 
         cursor: 'pointer',
         padding: '16px',
